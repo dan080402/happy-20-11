@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 20/10 My Love 💖</title>
+<style>
+  /* Nền gradient + sparkle lung linh */
+  body {
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #ffe6f2 0%, #ffb3d9 50%, #ff99cc 100%);
+  font-family: 'Comic Sans MS', cursive;
+}
+
+
+  /* Sparkle nhỏ */
+  body::after {
+    content:"";
+    position:fixed;
+    inset:0;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events:none;
+  }
+.wish {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff3399;
+  text-shadow: 1px 1px 5px #fff;
+  animation: riseWish 4s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes riseWish {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-60px) rotate(20deg); opacity: 0; }
+}
+
+
+
+  /* Màn hình bắt đầu */
+  .start-screen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff66b2, #ff99cc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    z-index: 10;
+  }
+
+  .start-button {
+    background: #fff;
+    color: #ff3399;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255,0,128,0.3);
+    transition: transform 0.3s;
+  }
+
+  .start-button:hover { transform: scale(1.1); }
+
+  /* Slideshow container */
+.slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* full màn hình */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.slide-wrapper {
+  position: relative;
+  width: 90%; /* giữ khoảng cách hai bên */
+  height: 90%; /* giữ khoảng cách trên/dưới */
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ảnh không bị biến dạng */
+  border-radius: 30px;
+  border: 5px solid rgba(255,182,193,0.5);
+  box-shadow: 0 0 25px rgba(255,0,128,0.5), 0 0 50px rgba(255,182,193,0.3);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+
+.slide.active { opacity: 1; }
+
+
+  .emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: fall 3s linear forwards;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-50px) scale(1); opacity: 1; }
+    100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  }
+
+  .character {
+    position: absolute;
+    bottom: 10px;
+    left: -100px;
+    font-size: 3rem;
+    animation: runAcross 10s linear infinite;
+    z-index: 2;
+  }
+
+  @keyframes runAcross {
+    0% { left: -100px; transform: rotateY(0); }
+    50% { transform: rotateY(180deg); }
+    100% { left: 110%; transform: rotateY(0); }
+  }
+
+  .bubble {
+    position: absolute;
+    background: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    animation: rise 5s linear forwards;
+    pointer-events: none;
+  }
+
+  @keyframes rise {
+    0% { bottom: 0; transform: scale(0.5); opacity: 0.7; }
+    100% { bottom: 100vh; transform: scale(1.2); opacity: 0; }
+  }
+
+  /* Dải trang trí hai bên */
+  .side-left, .side-right {
+    position: fixed;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .side-left { left: 0; }
+  .side-right { right: 0; }
+
+  /* Nơ nhỏ góc ảnh */
+  .slide-wrapper::before {
+    content: "🎀";
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    opacity: 0.7;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @media (max-width: 768px) {
+    .slideshow { width: 95%; height: 65vh; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="start-screen">
+  <h1>💖 Happy 20/10 My Love 💖</h1>
+  <button class="start-button" onclick="startShow()">Bắt đầu</button>
+</div>
+
+<div class="slideshow">
+  <div class="slide-wrapper">
+   <img src="images/9.jpg" class="slide active"> <img src="images/10.jpg" class="slide"> <img src="images/11.jpg" class="slide"> <img src="images/12.jpg" class="slide"> <img src="images/15.jpg" class="slide"> <img src="images/13.jpg" class="slide"> <img src="images/20.jpg" class="slide"> <img src="images/14.jpg" class="slide"> <img src="images/19.jpg" class="slide"> <img src="images/21.jpg" class="slide"> <img src="images/22.jpg" class="slide"> <img src="images/7.jpg" class="slide"> <img src="images/8 (2).jpg" class="slide"> <img src="images/23.jpg" class="slide"> <img src="images/8 (1).jpg" class="slide"> <img src="images/8.jpg" class="slide"> <img src="images/8 (6).jpg" class="slide"> <img src="images/8 (4).jpg" class="slide"> <img src="images/8 (5).jpg" class="slide"> <img src="images/8 (3).jpg" class="slide">
+  </div>
+</div>
+
+<div class="character">🐤</div>
+<div class="side-left"></div>
+<div class="side-right"></div>
+<audio id="music" src="Perfect.mp3"></audio>
+
+<script>
+let current = 0;
+let slides = document.querySelectorAll('.slide');
+
+function nextSlide() {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}
+
+function randomEmoji() {
+  const emojis = ["💖","🎆","✨","🌸","💫","💝","🎉","💐","🩷","🌈","🦆","🍬","🎈"];
+  let e = document.createElement('div');
+  e.className = 'emoji';
+  e.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+  e.style.left = Math.random() * 100 + 'vw';
+  e.style.animationDuration = (2 + Math.random() * 3) + 's';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),4000);
+}
+function randomWish() {
+  const wishes = [
+    "Chúc em luôn xinh đẹp 💖",
+    "Mãi hạnh phúc nhé 🌸",
+    "Chúc tình yêu luôn ngọt ngào 🍬",
+    "20/10 vui vẻ 💝",
+    "Luôn cười thật tươi 😘"
+  ];
+  let w = document.createElement('div');
+  w.className = 'wish';
+  w.innerText = wishes[Math.floor(Math.random() * wishes.length)];
+
+  // Vị trí ngẫu nhiên trên màn hình
+  w.style.left = Math.random() * 90 + 'vw'; 
+  w.style.top = (30 + Math.random() * 50) + 'vh'; // 30%-80% màn hình
+
+  document.body.appendChild(w);
+  setTimeout(() => w.remove(), 4000);
+}
+
+// Gọi mỗi 2–5 giây
+setInterval(randomWish, 2000 + Math.random()*3000);
+
+
+function randomBubble() {
+  let b = document.createElement('div');
+  b.className = 'bubble';
+  b.style.left = Math.random() * 100 + 'vw';
+  let size = 10 + Math.random() * 20;
+  b.style.width = size + 'px';
+  b.style.height = size + 'px';
+  b.style.animationDuration = (3 + Math.random() * 4) + 's';
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),7000);
+}
+
+function sideDecor() {
+  const sides = ['side-left','side-right'];
+  sides.forEach(side => {
+    let e = document.createElement('div');
+    e.className = 'emoji';
+    const emojis = ["🌸","💖","✨","🌷","💫"];
+    e.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    e.style.left = Math.random() * 50 + 'px';
+    e.style.animationDuration = (3 + Math.random() * 4) + 's';
+    document.querySelector(`.${side}`).appendChild(e);
+    setTimeout(()=>e.remove(),5000);
+  });
+}
+
+function startShow() {
+  document.querySelector('.start-screen').style.display = 'none';
+  document.getElementById('music').play();
+  setInterval(nextSlide, 4000);
+  setInterval(randomEmoji, 400);
+  setInterval(randomBubble, 600);
+  setInterval(sideDecor, 500);
+}
+</script>
+
+</body>
+</html>
